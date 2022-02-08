@@ -2,21 +2,27 @@ import AppContext from '../AppContext'
 import React from 'react'
 import Link from 'next/link'
 import NavBar from '../components/NavBar'
+import { useRouter } from 'next/router'
 
 const postDescription = ({}) => {
 	const context = React.useContext(AppContext)
 	const apiRes = context.post
 	const post = apiRes ? apiRes : []
+	const router = useRouter()
+
+	React.useEffect(() => {
+		!post.title && router.push('/')
+	}, [])
 
 	return (
-		<div>
-			<div>
-				<NavBar />
+		<div className="container mx-auto">
+			<NavBar />
+			<div className="px-2 space-y-4 container flex flex-wrap  mx-auto flex-col h-screen">
+				<h1 className="text-4xl uppercase">{post.title}</h1>
+				<h2 className=" text-3xl uppercase">{post.subtitle}</h2>
+				<h3 className="text-xl capitalize font-light">{post.author}</h3>
+				<p className="text-left capitalize">{post.content}</p>
 			</div>
-			<h1>{post.title}</h1>
-			<h2>{post.subtitle}</h2>
-			<p>{post.content}</p>
-			<h3>{post.author}</h3>
 		</div>
 	)
 }
