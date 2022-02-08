@@ -8,12 +8,6 @@ const index = ({}) => {
 	const apiRes = context.response.home
 	const information = apiRes ? apiRes.data.attributes : []
 
-	const setTitleContext = () => {
-		!context.title && apiRes && context.setTitle(information.title)
-	}
-
-	setTitleContext()
-
 	return (
 		<div className="container mx-auto">
 			<NavBar />

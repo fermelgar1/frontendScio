@@ -7,7 +7,6 @@ import NavBar from '../components/NavBar'
 function MyApp({ Component, pageProps }) {
 	const [response, setResponse] = React.useState('')
 	const [post, setPost] = React.useState('')
-	const [title, setTitle] = React.useState('')
 
 	const getProps = async () => {
 		const [home, posts] = await Promise.all([
@@ -22,7 +21,7 @@ function MyApp({ Component, pageProps }) {
 	}, [])
 
 	return (
-		<AppContext.Provider value={{ response, post, setPost, title, setTitle }}>
+		<AppContext.Provider value={{ response, post, setPost }}>
 			<>
 				<Component {...pageProps} />
 			</>
