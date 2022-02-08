@@ -9,7 +9,7 @@ const NavBar = () => {
 	return (
 		<div className="grid grid-cols-4 gap-10 container mx-auto h-12 w-screen border-b-8 py-2 px-5 border-sky-500">
 			<Link href="/">
-				<a className="text-3xl col-span-2 uppercase">{title}</a>
+				<a className="text-3xl col-span-3 uppercase">{title}</a>
 			</Link>
 			<Link href="/posts">
 				<a className=" col-start-4 justify-end ">Posts</a>
